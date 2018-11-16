@@ -1,0 +1,12 @@
+global:
+  slack_api_url: 'https://hooks.slack.com/services/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'
+
+route:
+  receiver: 'slack-notifications'
+  group_by: [alertname]
+
+receivers:
+- name: 'slack-notifications'
+  slack_configs:
+  - channel: '#mh'
+    text: 'my message sent to slack'

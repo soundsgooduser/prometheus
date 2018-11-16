@@ -1,0 +1,11 @@
+groups:
+  - name: default
+    rules:
+    - alert: CheckRPC
+      expr: rpc_durations_seconds_count{group="mygroup",instance="host.docker.internal:8080",job="example-random",service="uniform"} > 100
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "Test alert summary"
+        description: "Test alert description"
